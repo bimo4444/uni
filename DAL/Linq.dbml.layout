@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 25.875" name="Linq">
+  <DataContextMoniker Name="/LinqDataContext" />
+  <nestedChildShapes>
+    <classShape Id="228bbac2-61f6-430b-a809-8c1db541d982" absoluteBounds="1.625, 1.375, 2, 6.3861311848958326">
+      <DataClassMoniker Name="/LinqDataContext/Документ" />
+      <nestedChildShapes>
+        <elementListCompartment Id="87443a28-97d5-493d-94b1-1d862310bf3f" absoluteBounds="1.6399999999999997, 1.835, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="4eec3b55-edd3-457b-940f-62804e8d66a4" absoluteBounds="8, 1.375, 2, 6.1938297526041657">
+      <DataClassMoniker Name="/LinqDataContext/СпецификацияПартия" />
+      <nestedChildShapes>
+        <elementListCompartment Id="d7988744-b7b5-4848-84f1-c246a1abd495" absoluteBounds="8.015, 1.835, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="2e6e0fd2-5418-41fb-8100-4c64d76f6349" absoluteBounds="3.75, 1.375, 2, 4.8477197265625">
+      <DataClassMoniker Name="/LinqDataContext/СерийныйНомер" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ed53a9c6-6c66-4cbc-ba44-15d74ecb412a" absoluteBounds="3.7649999999999997, 1.835, 1.9700000000000002, 4.2877197265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" absoluteBounds="5.875, 1.375, 2, 23.693260091145834">
+      <DataClassMoniker Name="/LinqDataContext/НоменклатурнаяПозиция" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b01ba72f-3432-408b-95ac-6c1bd4b7eee1" absoluteBounds="5.8900000000000006, 1.835, 1.9700000000000002, 23.133260091145832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(7.875 : 4.47191487630208); (8 : 4.47191487630208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/НоменклатурнаяПозиция/НоменклатурнаяПозиция_СпецификацияПартия" />
+      <nodes>
+        <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
+        <classShapeMoniker Id="4eec3b55-edd3-457b-940f-62804e8d66a4" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.875 : 3.79885986328125); (5.75 : 3.79885986328125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/LinqDataContext/НоменклатурнаяПозиция/НоменклатурнаяПозиция_СерийныйНомер" />
+      <nodes>
+        <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
+        <classShapeMoniker Id="2e6e0fd2-5418-41fb-8100-4c64d76f6349" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.58423076923077 : 25.0682600911458); (6.58423076923077 : 25.3182600911458); (7.17961538461539 : 25.3182600911458); (7.17961538461539 : 25.0682600911458)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LinqDataContext/НоменклатурнаяПозиция/НоменклатурнаяПозиция_НоменклатурнаяПозиция" />
+      <nodes>
+        <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
+        <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.58423076923077 : 1.375); (6.58423076923077 : 1.125); (7.17961538461539 : 1.125); (7.17961538461539 : 1.375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LinqDataContext/НоменклатурнаяПозиция/НоменклатурнаяПозиция_НоменклатурнаяПозиция1" />
+      <nodes>
+        <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
+        <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
