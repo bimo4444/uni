@@ -102,7 +102,7 @@ namespace uni
         private void Union()
         {
             firstViewModel.Status = "";
-            string s = engine.CheckGuidsEthic(true, firstViewModel.OldValues, firstViewModel.NewValue);
+            string s = engine.CheckGuidsEthic(true, false, firstViewModel.OldValues, firstViewModel.NewValue);
             if (s != "")
             {
                 if (ShowDialog("Объеденить:\n" + s))
@@ -151,7 +151,7 @@ namespace uni
         private void ReturnDeleted()
         {
             firstViewModel.Status = "";
-            string s = engine.CheckGuidsEthic(false, firstViewModel.OldValues);
+            string s = engine.CheckGuidsEthic(false, true, firstViewModel.OldValues);
             if (s != "")
             {
                 if (ShowDialog("Вернуть:\n" + s))

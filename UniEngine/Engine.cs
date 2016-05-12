@@ -19,14 +19,14 @@ namespace UniEngine
         NamesHelper nHelper = new NamesHelper();
 
         //get names
-        public string CheckGuidsEthic(bool checkBreed, string oldValues, string newValue = null)
+        public string CheckGuidsEthic(bool checkBreed, bool deleted, string oldValues, string newValue = null)
         {
             if (newValue != null)
                 oldValues += "," + newValue;
             var v = gNormalizer.NormalizeToList(oldValues);
             if (v.Count() == 0)
                 return "";
-            string s = nHelper.GetNames(v);
+            string s = nHelper.GetNames(v, deleted);
             //check guids for unique type
             if (checkBreed && nHelper.Breed)
                 return "";

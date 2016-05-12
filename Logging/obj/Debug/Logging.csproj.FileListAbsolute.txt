@@ -3,3 +3,7 @@ D:\Projects\iim\Logging\bin\Debug\Logging.pdb
 D:\Projects\iim\Logging\obj\Debug\Logging.dll
 D:\Projects\iim\Logging\obj\Debug\Logging.pdb
 D:\Projects\iim\Logging\obj\Debug\Logging.csprojResolveAssemblyReference.cache
+D:\Projects\uni\Logging\bin\Debug\Logging.dll
+D:\Projects\uni\Logging\bin\Debug\Logging.pdb
+D:\Projects\uni\Logging\obj\Debug\Logging.dll
+D:\Projects\uni\Logging\obj\Debug\Logging.pdb

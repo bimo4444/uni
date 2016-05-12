@@ -24,11 +24,11 @@ namespace UniEngine
 
         public string GetDocumentNames(IEnumerable<Guid> guids)
         {
-            IEnumerable<string> s = n.GetDocumentNames(guids);
+            IEnumerable<string> s = n.GetDocumentNames(guids, false);
             return s != null ? "\nДокументы:" + StringJoin(s) : "";
         }
 
-        public string GetNames(IEnumerable<Guid> guids)
+        public string GetNames(IEnumerable<Guid> guids, bool deleted)
         {
             b = Breed = Nomenclatures =
                 Consignments = Documents = Serials = false;
@@ -36,8 +36,8 @@ namespace UniEngine
             string s = "";
             IEnumerable<string> ss;
 
-            ss = n.GetConsignmentNames(guids);
-            if (ss != null)
+            ss = n.GetConsignmentNames(guids, deleted);
+            if (ss.Any())
             {
                 s += "\nПартии:" + StringJoin(ss);
                 b = true;
@@ -45,8 +45,8 @@ namespace UniEngine
                 ss = null;
             }
 
-            ss = n.GetDocumentNames(guids);
-            if (ss != null)
+            ss = n.GetDocumentNames(guids, deleted);
+            if (ss.Any())
             {
                 s += "\nДокументы:" + StringJoin(ss);
                 ChechBreed();
@@ -54,8 +54,8 @@ namespace UniEngine
                 ss = null;
             }
 
-            ss = n.GetNomenclatureNames(guids);
-            if (ss != null)
+            ss = n.GetNomenclatureNames(guids, deleted);
+            if (ss.Any())
             {
                 s += "\nНП:" + StringJoin(ss);
                 ChechBreed();
@@ -63,8 +63,8 @@ namespace UniEngine
                 ss = null;
             }
 
-            ss = n.GetSerialNames(guids);
-            if (ss != null)
+            ss = n.GetSerialNames(guids, deleted);
+            if (ss.Any())
             {
                 s += "\nСерийные номера:" + StringJoin(ss);
                 ChechBreed();
