@@ -12,7 +12,16 @@ namespace uni.ViewModels
     {
         public ICommand Copy { get; set; }
         public ICommand Back { get; set; }
-        public List<Employee> Employees { get; set; }
+        private List<Employee> employees;
+        public List<Employee> Employees 
+        { 
+            get { return employees; } 
+            set 
+            { 
+                employees = value;
+                OnPropertyChanged("Employees");
+            }
+        }
         public Employee SelectedItem { get; set; }
     }
 }

@@ -14,10 +14,10 @@
              dx:ThemeManager.ThemeName="Office2013">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="25"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <c:ImgButton Grid.Row="0" Command="{Binding Back}" Text1="Назад" Picture="/Resources/resultset_previous.png" StackMargin="-5,0,0,0" Width="70" Margin="5,5,0,0" HorizontalAlignment="Left"/>
+        <c:ImgButton Grid.Row="0" Command="{Binding Back}" Text1="Назад" Height="20" Picture="/Resources/resultset_previous.png" StackMargin="-5,0,0,0" Width="70" Margin="5,5,0,0" HorizontalAlignment="Left"/>
         <dxb:BarManager Grid.Row="1">
             <dxb:BarManager.Items>
                 <dxb:BarButtonItem Content="Копировать" Name="Copy" Glyph="/Resources/page_copy.png" Command="{Binding Copy}"/>

@@ -20,13 +20,13 @@
                     <ColumnDefinition Width="55"/>
                 </Grid.ColumnDefinitions>
 
-                <Label Grid.Column="1" Content="Что заменять" HorizontalAlignment="Center" Foreground="White"/>
+                <Label Grid.Column="1" Content="Что изменить:" HorizontalAlignment="Center" Foreground="White"/>
                 <c:ImgButton Grid.Column="2" Margin="0,5,5,0" Width="25" StackMargin="0,0,-3,0" ToolTip="Телефонный справочник" Command="{Binding ShowPhoneBook}" Picture="\Resources\telephone.png" HorizontalAlignment="Right"/>
             </Grid>
             <TextBox Text="{Binding OldValues, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" Height="270" TextWrapping="Wrap" Width="280"/>
         </StackPanel>
         <StackPanel Grid.Row="1">
-            <Label Content="На что заменять" HorizontalAlignment="Center" Foreground="White"/>
+            <Label Content="Объединить в:" HorizontalAlignment="Center" Foreground="White"/>
             <TextBox Text="{Binding NewValue, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Center" TextWrapping="Wrap" Width="280"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

@@ -20,21 +20,15 @@ namespace uni
     class Presenter
     {
         public event EventHandler PropertyChanged;
-
         MainWindow mainWindow = new MainWindow();
         MainViewModel mainViewModel = new MainViewModel();
-
         PhoneBook phoneBook = new PhoneBook();
         PhoneBookViewModel phoneBookViewModel = new PhoneBookViewModel();
-
         FirstView firstView = new FirstView();
         FirstViewModel firstViewModel = new FirstViewModel();
-
         ErrorView errorView = new ErrorView();
         ErrorViewModel errorViewModel = new ErrorViewModel();
-
         Engine engine = new Engine();
-
         Dialog dialog;
         DialogView dv = new DialogView();
         public Presenter()
@@ -45,15 +39,18 @@ namespace uni
             ShowMainWindow();
             SubscribeVMChanges();
         }
-		
         private void ShowPhoneBook()
         {
             mainViewModel.CursorState = Cursors.Wait;
-            Task.Factory.StartNew(() => { phoneBookViewModel.Employees = engine.GetEmployees(); }).Wait();
+            Task.Factory.StartNew(() => 
+            {
+                if (phoneBookViewModel.Employees == null)
+                    phoneBookViewModel.Employees = engine.GetEmployees();
+                mainViewModel.CurrentView = phoneBook;
+            })
+            .Wait();
             mainViewModel.CursorState = Cursors.Arrow;
-            mainViewModel.CurrentView = phoneBook;
         }
-
         private bool ShowDialog(string text)
         {
             if (dialog == null)
@@ -64,12 +61,10 @@ namespace uni
 
             return dialog.result ?? false;
         }
-
         private void SubscribeVMChanges()
         {
             firstViewModel.PropertyChanged += OnPropertyChanged;
         }
-
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == "NewValue" || e.PropertyName == "OldValues")
@@ -79,7 +74,6 @@ namespace uni
                     handler(this, EventArgs.Empty);
             }
         }
-
         private void Bindings()
         {
             firstViewModel.Union = new RelayCommand(
@@ -91,7 +85,7 @@ namespace uni
             errorViewModel.Back = new RelayCommand(SetFirstView);
 			firstViewModel.ShowPhoneBook = new DelegateCommand(() => ShowPhoneBook());
             phoneBookViewModel.Back = new DelegateCommand(() => mainViewModel.CurrentView = firstView);
-            phoneBookViewModel.Copy = new DelegateCommand(() => Clipboard.SetText(phoneBook.gridControl.GetFocusedValue().ToString()));
+            phoneBookViewModel.Copy = new DelegateCommand(() => { try { Clipboard.SetText(phoneBook.gridControl.GetFocusedValue().ToString()); } catch { } });
         }
         private void SetViewModels()
         {
@@ -100,7 +94,6 @@ namespace uni
             phoneBook.DataContext = phoneBookViewModel;
             errorView.DataContext = errorViewModel;
         }
-
         private void SetFirstView()
         {
             mainViewModel.CurrentView = firstView;
@@ -110,7 +103,6 @@ namespace uni
         {
             mainWindow.Show();
         }
-          
         private void Union()
         {
             firstViewModel.Status = "";
