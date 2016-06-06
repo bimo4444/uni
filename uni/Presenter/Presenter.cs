@@ -123,10 +123,10 @@ namespace uni
                     int i = engine.Union(firstViewModel.OldValues, firstViewModel.NewValue);
                     mainViewModel.CursorState = Cursors.Arrow;
                     firstViewModel.Status = "Обработано: " + i;
-                    GoBack();
+                    SetFirstView();
                 }
                 else
-                    GoBack();
+                    SetFirstView();
             }
             else
             {
@@ -145,10 +145,10 @@ namespace uni
                     int i = engine.DeleteWays(firstViewModel.OldValues);
                     mainViewModel.CursorState = Cursors.Arrow;
                     firstViewModel.Status = "Обработано: " + i;
-                    GoBack();
+                    SetFirstView();
                 }
                 else
-                    GoBack();
+                    SetFirstView();
             }
             else
             {
@@ -172,10 +172,10 @@ namespace uni
                     int i = engine.ReturnDeleted(firstViewModel.OldValues);
                     mainViewModel.CursorState = Cursors.Arrow;
                     firstViewModel.Status = "Обработано: " + i;
-                    GoBack();
+                    SetFirstView();
                 }
                 else
-                    GoBack();
+                    SetFirstView();
             }
             else
             {

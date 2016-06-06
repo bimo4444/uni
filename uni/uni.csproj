@@ -41,6 +41,34 @@
     <ApplicationIcon>Resources\kmenu2.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Controls, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim\iim\bin\Debug\Controls.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim\iim\bin\Debug\DevExpress.Data.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim\iim\bin\Debug\DevExpress.Mvvm.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim\iim\bin\Debug\DevExpress.Xpf.Core.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v14.1.Core, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim\iim\bin\Debug\DevExpress.Xpf.Grid.v14.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2013.v14.1, Version=14.1.8.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\iim\iim\bin\Debug\DevExpress.Xpf.Themes.Office2013.v14.1.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject, Version=3.2.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <HintPath>..\packages\Ninject.3.2.2.0\lib\net40\Ninject.dll</HintPath>
       <Private>True</Private>
@@ -66,9 +94,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Bindings.cs" />
-    <Compile Include="Presenter\RelayCommand.cs" />
     <Compile Include="ViewModels\ErrorViewModel.cs" />
     <Compile Include="ViewModels\FirstViewModel.cs" />
+    <Compile Include="ViewModels\PhoneBookViewModel.cs" />
+    <Compile Include="Views\PhoneBook.xaml.cs">
+      <DependentUpon>PhoneBook.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\DialogView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -103,6 +134,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PhoneBook.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Presenter\Presenter.cs" />
@@ -142,6 +177,10 @@
       <Project>{aece9533-8f0a-447a-8f71-eb964fe6749c}</Project>
       <Name>DialogBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{9f1d7313-4d5b-4d34-b729-e829582b66a7}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Logging\Logging.csproj">
       <Project>{3b6f2d74-3b42-4d9c-8003-3151f9a0b23e}</Project>
       <Name>Logging</Name>
@@ -165,6 +204,9 @@
     <Resource Include="Resources\page_copy.png" />
     <Resource Include="Resources\resultset_previous.png" />
     <Resource Include="Resources\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\telephone.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
