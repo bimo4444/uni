@@ -13,7 +13,6 @@ namespace uni.ViewModels
         public ICommand Union { get; set; }
         public ICommand Ways { get; set; }
         public ICommand Return { get; set; }
-        public ICommand ShowPhoneBook { get; set; }
 
         private string _oldValues;
         public string OldValues

@@ -7,7 +7,7 @@ using System.Windows.Input;
 
 namespace MVPLight
 {
-    public class RelayCommand : ICommand
+    class RelayCommand : ICommand
     {
         private Action action;
         private Func<bool> canExecute;

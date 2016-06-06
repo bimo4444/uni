@@ -35,6 +35,8 @@ namespace uni
 
         Engine engine = new Engine();
 
+        Dialog dialog;
+        DialogView dv = new DialogView();
         public Presenter()
         {
             Bindings();
@@ -43,6 +45,7 @@ namespace uni
             ShowMainWindow();
             SubscribeVMChanges();
         }
+		
         private void ShowPhoneBook()
         {
             mainViewModel.CursorState = Cursors.Wait;
@@ -50,8 +53,7 @@ namespace uni
             mainViewModel.CursorState = Cursors.Arrow;
             mainViewModel.CurrentView = phoneBook;
         }
-        Dialog dialog;
-        DialogView dv = new DialogView();
+
         private bool ShowDialog(string text)
         {
             if (dialog == null)
@@ -86,16 +88,11 @@ namespace uni
                 ReturnDeleted, ref PropertyChanged, (() => firstViewModel.OldValues != null && firstViewModel.OldValues != ""));
             firstViewModel.Ways = new RelayCommand(
                 DeleteWays, ref PropertyChanged, (() => firstViewModel.OldValues != null && firstViewModel.OldValues != ""));
-            errorViewModel.Back = new DelegateCommand(GoBack);
-            firstViewModel.ShowPhoneBook = new DelegateCommand(() => ShowPhoneBook());
+            errorViewModel.Back = new RelayCommand(SetFirstView);
+			firstViewModel.ShowPhoneBook = new DelegateCommand(() => ShowPhoneBook());
             phoneBookViewModel.Back = new DelegateCommand(() => mainViewModel.CurrentView = firstView);
             phoneBookViewModel.Copy = new DelegateCommand(() => Clipboard.SetText(phoneBook.gridControl.GetFocusedValue().ToString()));
         }
-        private void GoBack()
-        {
-            mainViewModel.CurrentView = firstView;
-        }
-
         private void SetViewModels()
         {
             mainWindow.DataContext = mainViewModel;

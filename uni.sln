@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "uni", "uni\uni.csproj", "{C40648E6-D8E6-49C6-A4F0-57CC87C2810D}"
 EndProject
@@ -16,8 +16,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ADOLib", "ADOLib\ADOLib.csproj", "{2134B031-56DC-4140-85C5-CF6DA5B85D16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{3B6F2D74-3B42-4D9C-8003-3151F9A0B23E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{9F1D7313-4D5B-4D34-B729-E829582B66A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,10 +51,6 @@ Global
 		{3B6F2D74-3B42-4D9C-8003-3151F9A0B23E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B6F2D74-3B42-4D9C-8003-3151F9A0B23E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B6F2D74-3B42-4D9C-8003-3151F9A0B23E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9F1D7313-4D5B-4D34-B729-E829582B66A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9F1D7313-4D5B-4D34-B729-E829582B66A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9F1D7313-4D5B-4D34-B729-E829582B66A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9F1D7313-4D5B-4D34-B729-E829582B66A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,4 @@
 ﻿using DAL;
-using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +33,10 @@ namespace UniEngine
                 return "";
             return s;
         }
+        public List<Employee> GetEmployees()
+        {
+            return phoneBookReader.GetEmployees();
+        }
 
         //queries
         public int Union(string oldValues, string newValue)
@@ -62,11 +65,6 @@ namespace UniEngine
         {
             oldValues = gNormalizer.NormalizeToString(oldValues);
             return returnDeleted.Return(oldValues);
-        }
-
-        public List<Employee> GetEmployees()
-        {
-            return phoneBookReader.GetEmployees();
         }
     }
 }
