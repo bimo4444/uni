@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="uni.Views.PhoneBook"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+             xmlns:dxb="http://schemas.devexpress.com/winfx/2008/xaml/bars"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:Dynamic="clr-namespace:System.Dynamic;assembly=System.Core"
+             xmlns:c="clr-namespace:Controls;assembly=Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             dx:ThemeManager.ThemeName="Office2013">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <c:ImgButton Grid.Row="0" Command="{Binding Back}" Text1="Назад" Picture="/Resources/resultset_previous.png" StackMargin="-5,0,0,0" Width="70" Margin="5,5,0,0" HorizontalAlignment="Left"/>
+        <dxb:BarManager Grid.Row="1">
+            <dxb:BarManager.Items>
+                <dxb:BarButtonItem Content="Копировать" Name="Copy" Glyph="/Resources/page_copy.png" Command="{Binding Copy}"/>
+                <dxb:BarButtonItem Content="Назад" Name="Back" Glyph="/Resources/resultset_previous.png" Command="{Binding Back}"/>
+            </dxb:BarManager.Items>
+            <dxg:GridControl Grid.Row="1" x:Name="gridControl" ItemsSource="{Binding Employees, Mode=TwoWay}" AutoGenerateColumns="None" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
+                <dxg:GridControl.TotalSummary>
+                    <dxg:GridSummaryItem DisplayFormat="n0" FieldName="UnitMeasurement" SummaryType="Count" Visible="True"/>
+                </dxg:GridControl.TotalSummary>
+                <!--COLUMNS-->
+                <dxg:GridControl.Columns>
+                    <dxg:GridColumn FieldName="Name" Header="Сотрудник" Width="100"/>
+                    <dxg:GridColumn FieldName="Phone" Header="Телефон" Width="60"/>
+                    <dxg:GridColumn FieldName="Machine" Header="Компьютер" Width="80"/>
+                </dxg:GridControl.Columns>
+                <dxg:GridControl.View>
+                    <dxg:TableView IsRowCellMenuEnabled="True" x:Name="tableView" ShowTotalSummary="True" IsDetailButtonVisibleBinding="{x:Null}" AllowEditing="False" ShowAutoFilterRow="True"
+                                                       FilterEditorShowOperandTypeIcon="True" ShowGroupPanel="False" SearchPanelFindFilter="Like">
+                        <dxg:TableView.RowCellMenuCustomizations>
+                            <dxb:BarButtonItemLink BarItemName="Copy"/>
+                            <dxb:BarButtonItemLink BarItemName="Back"/>
+                        </dxg:TableView.RowCellMenuCustomizations>
+                        <dxg:TableView.FocusedRow>
+                            <Dynamic:ExpandoObject/>
+                        </dxg:TableView.FocusedRow>
+                        <dxg:TableView.LayoutCalculatorFactory>
+                            <dxg:GridTableViewLayoutCalculatorFactory/>
+                        </dxg:TableView.LayoutCalculatorFactory>
+                    </dxg:TableView>
+                </dxg:GridControl.View>
+            </dxg:GridControl>
+        </dxb:BarManager>
+    </Grid>
+</UserControl>

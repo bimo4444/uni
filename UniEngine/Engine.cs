@@ -1,4 +1,5 @@
 ﻿using DAL;
+using Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,7 @@ namespace UniEngine
         ReturnDeleted returnDeleted = new ReturnDeleted();
         GuidNormalizer gNormalizer = new GuidNormalizer();
         NamesHelper nHelper = new NamesHelper();
+        PhoneBookReader phoneBookReader = new PhoneBookReader();
 
         //get names
         public string CheckGuidsEthic(bool checkBreed, bool deleted, string oldValues, string newValue = null)
@@ -60,6 +62,11 @@ namespace UniEngine
         {
             oldValues = gNormalizer.NormalizeToString(oldValues);
             return returnDeleted.Return(oldValues);
+        }
+
+        public List<Employee> GetEmployees()
+        {
+            return phoneBookReader.GetEmployees();
         }
     }
 }

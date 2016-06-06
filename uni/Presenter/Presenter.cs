@@ -12,6 +12,8 @@ using System.Windows.Threading;
 using System.ComponentModel;
 using DialogBase;
 using System.Windows.Controls;
+using MVPLight;
+using Entities;
 
 namespace uni
 {
@@ -21,6 +23,9 @@ namespace uni
 
         MainWindow mainWindow = new MainWindow();
         MainViewModel mainViewModel = new MainViewModel();
+
+        PhoneBook phoneBook = new PhoneBook();
+        PhoneBookViewModel phoneBookViewModel = new PhoneBookViewModel();
 
         FirstView firstView = new FirstView();
         FirstViewModel firstViewModel = new FirstViewModel();
@@ -38,7 +43,13 @@ namespace uni
             ShowMainWindow();
             SubscribeVMChanges();
         }
-
+        private void ShowPhoneBook()
+        {
+            mainViewModel.CursorState = Cursors.Wait;
+            Task.Factory.StartNew(() => { phoneBookViewModel.Employees = engine.GetEmployees(); }).Wait();
+            mainViewModel.CursorState = Cursors.Arrow;
+            mainViewModel.CurrentView = phoneBook;
+        }
         Dialog dialog;
         DialogView dv = new DialogView();
         private bool ShowDialog(string text)
@@ -75,7 +86,10 @@ namespace uni
                 ReturnDeleted, ref PropertyChanged, (() => firstViewModel.OldValues != null && firstViewModel.OldValues != ""));
             firstViewModel.Ways = new RelayCommand(
                 DeleteWays, ref PropertyChanged, (() => firstViewModel.OldValues != null && firstViewModel.OldValues != ""));
-            errorViewModel.Back = new RelayCommand(GoBack);
+            errorViewModel.Back = new DelegateCommand(GoBack);
+            firstViewModel.ShowPhoneBook = new DelegateCommand(() => ShowPhoneBook());
+            phoneBookViewModel.Back = new DelegateCommand(() => mainViewModel.CurrentView = firstView);
+            phoneBookViewModel.Copy = new DelegateCommand(() => Clipboard.SetText(phoneBook.gridControl.GetFocusedValue().ToString()));
         }
         private void GoBack()
         {
@@ -86,6 +100,7 @@ namespace uni
         {
             mainWindow.DataContext = mainViewModel;
             firstView.DataContext = firstViewModel;
+            phoneBook.DataContext = phoneBookViewModel;
             errorView.DataContext = errorViewModel;
         }
 
