@@ -26,14 +26,14 @@
         <elementListCompartment Id="b01ba72f-3432-408b-95ac-6c1bd4b7eee1" absoluteBounds="5.8900000000000006, 1.835, 1.9700000000000002, 23.133260091145832" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(7.875 : 4.47191487630208); (8 : 4.47191487630208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(7.875 : 4.47191487630208); (8 : 4.47191487630208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqDataContext/НоменклатурнаяПозиция/НоменклатурнаяПозиция_СпецификацияПартия" />
       <nodes>
         <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
         <classShapeMoniker Id="4eec3b55-edd3-457b-940f-62804e8d66a4" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.875 : 3.79885986328125); (5.75 : 3.79885986328125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(5.875 : 3.79885986328125); (5.75 : 3.79885986328125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/LinqDataContext/НоменклатурнаяПозиция/НоменклатурнаяПозиция_СерийныйНомер" />
       <nodes>
         <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
@@ -54,5 +54,11 @@
         <classShapeMoniker Id="5dfa6985-e1bb-450f-a0fe-86fc407aaffa" />
       </nodes>
     </associationConnector>
+    <classShape Id="a9277e05-3ad4-4ac1-836f-a174a8d681d1" absoluteBounds="1.875, 0.625, 2, 3.3093082682291666">
+      <DataClassMoniker Name="/LinqDataContext/SecuritySystemUser" />
+      <nestedChildShapes>
+        <elementListCompartment Id="ccf9e96a-d6df-47b4-b4b6-1a6df7c74cf2" absoluteBounds="1.8900000000000001, 1.085, 1.9700000000000002, 2.7493082682291665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

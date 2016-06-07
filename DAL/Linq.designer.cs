@@ -42,6 +42,9 @@ namespace DAL
     partial void InsertНоменклатурнаяПозиция(НоменклатурнаяПозиция instance);
     partial void UpdateНоменклатурнаяПозиция(НоменклатурнаяПозиция instance);
     partial void DeleteНоменклатурнаяПозиция(НоменклатурнаяПозиция instance);
+    partial void InsertSecuritySystemUser(SecuritySystemUser instance);
+    partial void UpdateSecuritySystemUser(SecuritySystemUser instance);
+    partial void DeleteSecuritySystemUser(SecuritySystemUser instance);
     #endregion
 		
 		public LinqDataContext() : 
@@ -103,6 +106,14 @@ namespace DAL
 			get
 			{
 				return this.GetTable<НоменклатурнаяПозиция>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SecuritySystemUser> SecuritySystemUsers
+		{
+			get
+			{
+				return this.GetTable<SecuritySystemUser>();
 			}
 		}
 	}
@@ -5260,6 +5271,356 @@ namespace DAL
 		{
 			this.SendPropertyChanging();
 			entity.НоменклатурнаяПозиция2 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SecuritySystemUser")]
+	public partial class SecuritySystemUser : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Guid _Oid;
+		
+		private string _StoredPassword;
+		
+		private System.Nullable<bool> _ChangePasswordOnFirstLogon;
+		
+		private string _UserName;
+		
+		private System.Nullable<bool> _IsActive;
+		
+		private System.Nullable<int> _OptimisticLockField;
+		
+		private System.Nullable<int> _GCRecord;
+		
+		private System.Nullable<int> _ObjectType;
+		
+		private string _ФИО;
+		
+		private string _Примечание;
+		
+		private string _Компьютер;
+		
+		private System.Nullable<System.DateTime> _НаличиеТМЦ;
+		
+		private System.Nullable<System.DateTime> _ПланЗавода;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnOidChanging(System.Guid value);
+    partial void OnOidChanged();
+    partial void OnStoredPasswordChanging(string value);
+    partial void OnStoredPasswordChanged();
+    partial void OnChangePasswordOnFirstLogonChanging(System.Nullable<bool> value);
+    partial void OnChangePasswordOnFirstLogonChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnIsActiveChanging(System.Nullable<bool> value);
+    partial void OnIsActiveChanged();
+    partial void OnOptimisticLockFieldChanging(System.Nullable<int> value);
+    partial void OnOptimisticLockFieldChanged();
+    partial void OnGCRecordChanging(System.Nullable<int> value);
+    partial void OnGCRecordChanged();
+    partial void OnObjectTypeChanging(System.Nullable<int> value);
+    partial void OnObjectTypeChanged();
+    partial void OnФИОChanging(string value);
+    partial void OnФИОChanged();
+    partial void OnПримечаниеChanging(string value);
+    partial void OnПримечаниеChanged();
+    partial void OnКомпьютерChanging(string value);
+    partial void OnКомпьютерChanged();
+    partial void OnНаличиеТМЦChanging(System.Nullable<System.DateTime> value);
+    partial void OnНаличиеТМЦChanged();
+    partial void OnПланЗаводаChanging(System.Nullable<System.DateTime> value);
+    partial void OnПланЗаводаChanged();
+    #endregion
+		
+		public SecuritySystemUser()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Oid", DbType="UniqueIdentifier NOT NULL", IsPrimaryKey=true)]
+		public System.Guid Oid
+		{
+			get
+			{
+				return this._Oid;
+			}
+			set
+			{
+				if ((this._Oid != value))
+				{
+					this.OnOidChanging(value);
+					this.SendPropertyChanging();
+					this._Oid = value;
+					this.SendPropertyChanged("Oid");
+					this.OnOidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StoredPassword", DbType="NVarChar(MAX)")]
+		public string StoredPassword
+		{
+			get
+			{
+				return this._StoredPassword;
+			}
+			set
+			{
+				if ((this._StoredPassword != value))
+				{
+					this.OnStoredPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._StoredPassword = value;
+					this.SendPropertyChanged("StoredPassword");
+					this.OnStoredPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ChangePasswordOnFirstLogon", DbType="Bit")]
+		public System.Nullable<bool> ChangePasswordOnFirstLogon
+		{
+			get
+			{
+				return this._ChangePasswordOnFirstLogon;
+			}
+			set
+			{
+				if ((this._ChangePasswordOnFirstLogon != value))
+				{
+					this.OnChangePasswordOnFirstLogonChanging(value);
+					this.SendPropertyChanging();
+					this._ChangePasswordOnFirstLogon = value;
+					this.SendPropertyChanged("ChangePasswordOnFirstLogon");
+					this.OnChangePasswordOnFirstLogonChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="NVarChar(100)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsActive", DbType="Bit")]
+		public System.Nullable<bool> IsActive
+		{
+			get
+			{
+				return this._IsActive;
+			}
+			set
+			{
+				if ((this._IsActive != value))
+				{
+					this.OnIsActiveChanging(value);
+					this.SendPropertyChanging();
+					this._IsActive = value;
+					this.SendPropertyChanged("IsActive");
+					this.OnIsActiveChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OptimisticLockField", DbType="Int")]
+		public System.Nullable<int> OptimisticLockField
+		{
+			get
+			{
+				return this._OptimisticLockField;
+			}
+			set
+			{
+				if ((this._OptimisticLockField != value))
+				{
+					this.OnOptimisticLockFieldChanging(value);
+					this.SendPropertyChanging();
+					this._OptimisticLockField = value;
+					this.SendPropertyChanged("OptimisticLockField");
+					this.OnOptimisticLockFieldChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GCRecord", DbType="Int")]
+		public System.Nullable<int> GCRecord
+		{
+			get
+			{
+				return this._GCRecord;
+			}
+			set
+			{
+				if ((this._GCRecord != value))
+				{
+					this.OnGCRecordChanging(value);
+					this.SendPropertyChanging();
+					this._GCRecord = value;
+					this.SendPropertyChanged("GCRecord");
+					this.OnGCRecordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ObjectType", DbType="Int")]
+		public System.Nullable<int> ObjectType
+		{
+			get
+			{
+				return this._ObjectType;
+			}
+			set
+			{
+				if ((this._ObjectType != value))
+				{
+					this.OnObjectTypeChanging(value);
+					this.SendPropertyChanging();
+					this._ObjectType = value;
+					this.SendPropertyChanged("ObjectType");
+					this.OnObjectTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ФИО", DbType="NVarChar(100)")]
+		public string ФИО
+		{
+			get
+			{
+				return this._ФИО;
+			}
+			set
+			{
+				if ((this._ФИО != value))
+				{
+					this.OnФИОChanging(value);
+					this.SendPropertyChanging();
+					this._ФИО = value;
+					this.SendPropertyChanged("ФИО");
+					this.OnФИОChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Примечание", DbType="NVarChar(100)")]
+		public string Примечание
+		{
+			get
+			{
+				return this._Примечание;
+			}
+			set
+			{
+				if ((this._Примечание != value))
+				{
+					this.OnПримечаниеChanging(value);
+					this.SendPropertyChanging();
+					this._Примечание = value;
+					this.SendPropertyChanged("Примечание");
+					this.OnПримечаниеChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Компьютер", DbType="NVarChar(100)")]
+		public string Компьютер
+		{
+			get
+			{
+				return this._Компьютер;
+			}
+			set
+			{
+				if ((this._Компьютер != value))
+				{
+					this.OnКомпьютерChanging(value);
+					this.SendPropertyChanging();
+					this._Компьютер = value;
+					this.SendPropertyChanged("Компьютер");
+					this.OnКомпьютерChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_НаличиеТМЦ", DbType="DateTime")]
+		public System.Nullable<System.DateTime> НаличиеТМЦ
+		{
+			get
+			{
+				return this._НаличиеТМЦ;
+			}
+			set
+			{
+				if ((this._НаличиеТМЦ != value))
+				{
+					this.OnНаличиеТМЦChanging(value);
+					this.SendPropertyChanging();
+					this._НаличиеТМЦ = value;
+					this.SendPropertyChanged("НаличиеТМЦ");
+					this.OnНаличиеТМЦChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ПланЗавода", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ПланЗавода
+		{
+			get
+			{
+				return this._ПланЗавода;
+			}
+			set
+			{
+				if ((this._ПланЗавода != value))
+				{
+					this.OnПланЗаводаChanging(value);
+					this.SendPropertyChanging();
+					this._ПланЗавода = value;
+					this.SendPropertyChanged("ПланЗавода");
+					this.OnПланЗаводаChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }

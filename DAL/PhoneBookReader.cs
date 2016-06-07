@@ -13,11 +13,16 @@ namespace DAL
             List<Employee> list = new List<Employee>();
             using(LinqDataContext linq = new LinqDataContext())
             {
-                //list = linq.
-                //list.Add(new Employee { Name = "test0", Machine = "ggggg" });
-                //list.Add(new Employee { Name = "test1", Machine = "gg" });
-                //list.Add(new Employee { Name = "test4", Machine = "g" });
-                //list.Add(new Employee { Name = "test4", Machine = "44444444" });
+                list = linq.SecuritySystemUsers
+                    .Where(w => w.GCRecord == null && (w.Примечание != null || w.Компьютер != null))
+                    .OrderBy(o => o.ФИО)
+                    .Select(s => new Employee
+                    {
+                        Name = s.ФИО,
+                        Phone = s.Примечание,
+                        Machine = s.Компьютер
+                    })
+                    .ToList();
             }
             return list;
         }

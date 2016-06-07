@@ -14,10 +14,10 @@
              dx:ThemeManager.ThemeName="Office2013">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="25"/>
+            <RowDefinition Height="24"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <c:ImgButton Grid.Row="0" Command="{Binding Back}" Text1="Назад" Height="20" Picture="/Resources/resultset_previous.png" StackMargin="-5,0,0,0" Width="70" Margin="5,5,0,0" HorizontalAlignment="Left"/>
+        <c:ImgButton Grid.Row="0" dx:ThemeManager.ThemeName="none" Command="{Binding Back}" Text1="Назад" Picture="/Resources/resultset_previous.png" StackMargin="-5,0,0,0" Width="70" Margin="8,2,0,0" HorizontalAlignment="Left"/>
         <dxb:BarManager Grid.Row="1">
             <dxb:BarManager.Items>
                 <dxb:BarButtonItem Content="Копировать" Name="Copy" Glyph="/Resources/page_copy.png" Command="{Binding Copy}"/>
@@ -25,16 +25,28 @@
             </dxb:BarManager.Items>
             <dxg:GridControl Grid.Row="1" x:Name="gridControl" ItemsSource="{Binding Employees, Mode=TwoWay}" AutoGenerateColumns="None" SelectedItem="{Binding SelectedItem, Mode=TwoWay}">
                 <dxg:GridControl.TotalSummary>
-                    <dxg:GridSummaryItem DisplayFormat="n0" FieldName="UnitMeasurement" SummaryType="Count" Visible="True"/>
+                    <dxg:GridSummaryItem DisplayFormat="n0" FieldName="Name" SummaryType="Count" Visible="True"/>
                 </dxg:GridControl.TotalSummary>
                 <!--COLUMNS-->
                 <dxg:GridControl.Columns>
-                    <dxg:GridColumn FieldName="Name" Header="Сотрудник" Width="100"/>
-                    <dxg:GridColumn FieldName="Phone" Header="Телефон" Width="60"/>
-                    <dxg:GridColumn FieldName="Machine" Header="Компьютер" Width="80"/>
+                    <dxg:GridColumn FieldName="Name" Header="Сотрудник" Width="100">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings TextWrapping="Wrap"/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Phone" Header="Телефон" Width="60">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings TextWrapping="Wrap"/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
+                    <dxg:GridColumn FieldName="Machine" Header="Компьютер" Width="99">
+                        <dxg:GridColumn.EditSettings>
+                            <dxe:TextEditSettings TextWrapping="Wrap"/>
+                        </dxg:GridColumn.EditSettings>
+                    </dxg:GridColumn>
                 </dxg:GridControl.Columns>
                 <dxg:GridControl.View>
-                    <dxg:TableView IsRowCellMenuEnabled="True" x:Name="tableView" ShowTotalSummary="True" IsDetailButtonVisibleBinding="{x:Null}" AllowEditing="False" ShowAutoFilterRow="True"
+                    <dxg:TableView x:Name="tableView" IsRowCellMenuEnabled="True" ShowTotalSummary="True" IsDetailButtonVisibleBinding="{x:Null}" AllowEditing="False" ShowAutoFilterRow="True"
                                                        FilterEditorShowOperandTypeIcon="True" ShowGroupPanel="False" SearchPanelFindFilter="Like">
                         <dxg:TableView.RowCellMenuCustomizations>
                             <dxb:BarButtonItemLink BarItemName="Copy"/>

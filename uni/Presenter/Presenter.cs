@@ -37,7 +37,7 @@ namespace uni
             SetViewModels();
             SetFirstView();
             ShowMainWindow();
-            SubscribeVMChanges();
+            Subscribings();
         }
         private void ShowPhoneBook()
         {
@@ -61,9 +61,20 @@ namespace uni
 
             return dialog.result ?? false;
         }
-        private void SubscribeVMChanges()
+        private void Subscribings()
         {
             firstViewModel.PropertyChanged += OnPropertyChanged;
+            phoneBook.tableView.KeyDown += OnTableViewKeyDown;
+        }
+
+        private void OnTableViewKeyDown(object sender, KeyEventArgs e)
+        {
+            if (phoneBook.gridControl != null && e.Key == Key.C && (Keyboard.Modifiers & ModifierKeys.Control) == ModifierKeys.Control)
+            {
+                Clipboard.SetText(phoneBook.gridControl.GetFocusedValue().ToString());
+                if (e != null)
+                    e.Handled = true;
+            }
         }
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
